@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Anime</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .anime-container {
+        /* display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center; */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+      }
+      .anime-card {
+        border: 2px solid #333;
+        border-radius: 10px;
+        padding: 10px;
+        width: 200px;
+      }
+      .anime-card img {
+        width: 100%;
+      }
+      .anime-card h3 {
+        margin: 5px 0;
+        font-size: 16px;
+        text-align: center;
+        color: black;
+        font-weight: bold;
+      }
+      .anime-card p {
+        color: black;
+        text-align: start;
+      }
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: #333;
+        justify-content: flex-start;
+        font: 100px;
+        z-index: 100;
+      }
+
+      nav {
+        display: flex;
+        background-color: #333;
+        text-align: center;
+      }
+
+      nav a {
+        color: white;
+        margin: 0 15px;
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: none;
+      }
+      body {
+        margin: 0px;
+        font-family: Arial, sans-serif;
+        padding-top: 0px;
+        background-color: lightblue;
+      }
+
+      p {
+        font-size: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1
+        style="
+          font-size: 35px;
+          padding-left: 20px;
+          padding-top: 55px;
+          font-weight: bold;
+        "
+      >
+        Anime
+      </h1>
+    </header>
+
+    <div class="anime-container" id="animeContainer"></div>
+
+    <nav class="navbar">
+      <a href="http://127.0.0.1:5500/index.html">| Trang chủ |</a>
+      <a href="http://127.0.0.1:5500/api.html">| Đề xuất |</a>
+      <a href="http://127.0.0.1:5500/fav.html">| Yêu thích |</a>
+
+      <nav style="justify-items: center" class="searchBox">
+        <input type="text" id="searchInput" placeholder="Nhập tên phim" />
+        <button onclick="timKiemPhim">Tìm Kiếm</button>
+      </nav>
+    </nav>
+    <!-- Link tới file JS -->
+    <script src="api.js"></script>
+  </body>
+</html>

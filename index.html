@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang chủ</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Header & Navbar */
+      header {
+        position: fixed;
+        border: 5px solid #333;
+        top: 0;
+        height: 185px;
+        width: 100%;
+        background-color: #007bff;
+        color: white;
+        font-family: Arial;
+        text-align: center;
+        padding-top: 70px;
+      }
+      h1 {
+        font-size: 35px;
+      }
+      h5 {
+        font-size: 35px;
+        font-weight: bold;
+        text-align: center;
+        justify-content: center;
+      }
+      p {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        justify-content: center;
+      }
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: #333;
+        justify-content: flex-start;
+        z-index: 100;
+      }
+      nav {
+        display: flex;
+        background-color: #333;
+        text-align: center;
+      }
+      nav a {
+        color: white;
+        margin: 0 15px;
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      /* Grid container */
+      .grid-container {
+        display: flex;
+        flex-direction: column;
+        margin: 0px;
+      }
+
+      /* div thông thường */
+      .custom-div {
+        border: 5px solid grey;
+        border-radius: 10px;
+        margin-left: 160px;
+        margin-right: 160px;
+        margin-bottom: 50px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        background-color: grey;
+      }
+
+      /* div .home (dùng cho carousel) */
+      .home {
+        border: 5px solid black;
+        display: flex;
+        gap: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: lightblue;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* Carousel override để không bị style div áp vào */
+      .carousel,
+      .carousel-inner,
+      .carousel-item,
+      .carouselBlog {
+        border: none !important;
+        background-color: transparent !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border-radius: 20px !important;
+        height: 210px;
+      }
+
+      #carouselBanner .carousel-caption {
+        position: absolute;
+        top: 30%;
+        left: 30%;
+        transform: translate(-10%, -10%);
+        text-align: center !important;
+        background: rgba(255, 255, 255, 0.5);
+        padding: 10px 20px;
+        border-radius: 10px;
+      }
+      /* Chỉ áp dụng cho carousel */
+      .carousel-inner img {
+        width: 100%; /* Chiếm toàn bộ chiều rộng carousel */
+        height: 300px; /* Chiều cao cố định, đẹp vừa phải */
+        object-fit: cover; /* Cắt vừa đủ, không méo ảnh */
+        border-radius: 10px; /* Nếu muốn bo góc */
+        object-position: center;
+        object-fit: cover;
+      }
+
+      .grid-container img {
+        width: 200px;
+        height: 200px;
+        margin: 5px;
+        object-fit: cover;
+        border-radius: 6px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .li {
+        margin: 0px;
+        font-size: 20px;
+        color: darkcyan;
+      }
+      h2 {
+        color: darkcyan;
+      }
+      a {
+        color: white;
+        text-decoration: none;
+      }
+
+      body {
+        margin: 0px;
+        font-family: Arial;
+        padding-top: 200px;
+        background-color: lightblue;
+      }
+
+      footer div {
+        border: 5px solid black;
+        margin-left: 200px;
+        margin-right: 200px;
+        margin-bottom: 50px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        background-color: black;
+      }
+      .category-block {
+        display: flex;
+        align-items: flex-start;
+        gap: 30px;
+        padding: 20px;
+      }
+
+      .category-image img {
+        width: 280px;
+        height: auto;
+        border-radius: 12px;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header style="z-index: 100">
+      <h1 style="font-weight: bold">ABSOLUTE CINEMA</h1>
+      <p style="font-weight: bold">Top phim chất lượng đến từ Trái Đất</p>
+    </header>
+
+    <nav class="navbar">
+      <a href="http://127.0.0.1:5500/index.html">| Trang chủ |</a>
+      <a href="http://127.0.0.1:5500/api.html">| Đề xuất |</a>
+      <a href="http://127.0.0.1:5500/fav.html">| Yêu thích |</a>
+
+      <nav style="justify-items: center" class="searchBox">
+        <input type="text" id="searchInput" placeholder="Nhập tên phim" />
+        <button onclick="timKiemPhim()">Tìm Kiếm</button>
+      </nav>
+
+      <a
+        href="http://127.0.0.1:5500/signup.html"
+        style="position: fixed; right: 0"
+        ><img
+          src="./image/logout.jpg"
+          alt="ảnh lỗi"
+          style="
+            position: fixed;
+            right: 0;
+            top: 0;
+            height: 46px;
+            width: 46px;
+            background-color: white;
+          "
+        />
+      </a>
+    </nav>
+
+    <div class="grid-container">
+      <!-- Ô 1: Banner đề xuất (Carousel) -->
+      <div class="home custom-div">
+        <div
+          id="carouselBanner"
+          class="carousel slide w-100"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="./image/phim1.jpg"
+                class="d-block w-100"
+                alt="Phim 1"
+                style="border-radius: 20px"
+              />
+              <div
+                class="carousel-caption d-none d-md-block"
+                style="color: black"
+              >
+                <h5>🔥 Romcom top 1 mùa đông 2023</h5>
+                <p>"The Angel Next Door Spoils Me Rotten"</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                style="object-position: top center"
+                src="./image/phim2.png"
+                class="d-block w-100"
+                alt="Phim 2"
+                style="border-radius: 6px"
+              />
+              <div
+                class="carousel-caption d-none d-md-block"
+                style="color: black"
+              >
+                <h5>🌟 Romcom top 1 2023</h5>
+                <p>Kaguya-sama: Love is War?</p>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselBanner"
+            data-bs-slide="prev"
+          >
+            <span
+              class="carousel-control-prev-icon"
+              style="background-color: #333"
+            ></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselBanner"
+            data-bs-slide="next"
+          >
+            <span
+              class="carousel-control-next-icon"
+              style="background-color: #333"
+            ></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Ô 2: Thể loại phổ biến -->
+      <div class="home custom-div flex-row" style="justify-content: center">
+        <!-- Ảnh bên trái -->
+        <img src="./image/categories.png" alt="ảnh lỗi" class="home-img" />
+
+        <!-- Chữ bên phải -->
+        <div class="home-text">
+          <p><strong>🗂️ Thể loại phổ biến nhất:</strong></p>
+          <ul style="font-size: 20px">
+            <li>Romcom 💖</li>
+            <li>Adventure 🗺️</li>
+            <li>Action 🔥</li>
+            <li>Isekai 🌀</li>
+          </ul>
+        </div>
+        <div class="home-text">
+          <p><strong>🗂️ Thể loại khác:</strong></p>
+          <ul style="font-size: 20px">
+            <li>Sports 🏀</li>
+            <li>Supernatural 👻</li>
+            <li>Slice of Life ☕</li>
+            <li>Fantasy 🧙‍♂️</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Ô 3: Anime phổ biến -->
+      <div class="home custom-div" style="align-items: center">
+        <img src="../image/feedback-icon.png" alt="ảnh lỗi" />
+        <p>
+          <strong>💬 Khách hàng nói gì?</strong><br />
+          ...<br />
+          ???
+        </p>
+      </div>
+
+      <!-- Ô 4: Blog/tin tức (Carousel) -->
+      <div class="home custom-div">
+        <div
+          id="carouselBlog"
+          class="carousel slide w-100"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="./image/phim1.jpg"
+                class="d-block w-100"
+                alt="Tin 1"
+                style="border-radius: 6px"
+              />
+              <div
+                class="carousel-caption d-none d-md-block"
+                style="color: black"
+              >
+                <ul
+                  style="
+                    list-style: none;
+                    padding-left: 0;
+                    font-size: 40px;
+                    font-weight: bold;
+                  "
+                >
+                  <li>💬 Thiên sứ nhà bên ss2 sẽ ra mắt trong năm 2026</li>
+                </ul>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="./image/blog2.jpg"
+                class="d-block w-100"
+                alt="Tin 2"
+                style="border-radius: 6px"
+              />
+              <div
+                class="carousel-caption d-none d-md-block"
+                style="color: black"
+              >
+                <ul style="list-style: none; padding-left: 0; font-size: 20px">
+                  <li>💬 Phim XYZ chuẩn bị chiếu rạp tháng 6/2026</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselBlog"
+            data-bs-slide="prev"
+          >
+            <span
+              class="carousel-control-prev-icon"
+              style="background-color: #333"
+            ></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselBlog"
+            data-bs-slide="next"
+          >
+            <span
+              class="carousel-control-next-icon"
+              style="background-color: #333"
+            ></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer
+      class="text-center"
+      style="
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 40px;
+        margin-top: 20px;
+      "
+    >
+      <div style="background-color: black">
+        <h2 style="font-weight: bold">CONTACT:</h2>
+        <ul style="list-style: none; padding: 0">
+          <li class="li">
+            Email:
+            <a href="mailto:hadulong12@gmail.com">hadulong12@gmail.com</a>
+          </li>
+          <br />
+          <li class="li">Zalo: <a href="tel:0706451490">0706 451 490</a></li>
+          <br />
+          <li class="li" style="margin-bottom: -20px">
+            Facebook:
+            <a href="https://www.facebook.com/dulong.ha.7/">Hà Du Long</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
