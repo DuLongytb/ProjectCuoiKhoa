@@ -75,6 +75,25 @@
       p {
         font-size: 15px;
       }
+      footer div {
+        border: 5px solid black;
+        margin-left: 200px;
+        margin-right: 200px;
+        margin-bottom: 50px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        background-color: black;
+        color: darkcyan;
+      }
+      footer a {
+        color: white;
+        text-decoration: none;
+      }
+      .li {
+        margin: 0px;
+        font-size: 20px;
+        color: darkcyan;
+      }
     </style>
   </head>
   <body>
@@ -95,15 +114,44 @@
 
     <nav class="navbar">
       <a href="http://127.0.0.1:5500/index.html">| Trang chủ |</a>
-      <a href="http://127.0.0.1:5500/api.html">| Đề xuất |</a>
+      <a href="http://127.0.0.1:5500/api.html">| Anime |</a>
       <a href="http://127.0.0.1:5500/fav.html">| Yêu thích |</a>
 
       <nav style="justify-items: center" class="searchBox">
         <input type="text" id="searchInput" placeholder="Nhập tên phim" />
-        <button onclick="timKiemPhim">Tìm Kiếm</button>
+        <button onclick="timKiemPhim()">Tìm Kiếm</button>
       </nav>
     </nav>
-    <!-- Link tới file JS -->
+    <footer
+      class="text-center"
+      style="
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 40px;
+        margin-top: 20px;
+      "
+    >
+      <div style="background-color: black">
+        <h2 style="font-weight: bold">CONTACT:</h2>
+        <ul style="list-style: none; padding: 0">
+          <li class="li">
+            Email:
+            <a href="mailto:hadulong12@gmail.com">hadulong12@gmail.com</a>
+          </li>
+          <br />
+          <li class="li">Zalo: <a href="tel:0706451490">0706 451 490</a></li>
+          <br />
+          <li class="li" style="margin-bottom: -20px">
+            Facebook:
+            <a href="https://www.facebook.com/dulong.ha.7/">Hà Du Long</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
     <script src="api.js"></script>
   </body>
 </html>

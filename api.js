@@ -85,3 +85,43 @@ async function fetchAnimeSequential(animeList) {
 
 // Gọi hàm
 fetchAnimeSequential(animeList);
+
+// --- HÀM TÌM KIẾM BẰNG API JIKAN --- //
+async function timKiemPhim() {
+  const keyword = document.getElementById("searchInput").value.trim();
+
+  if (!keyword) return;
+
+  container.innerHTML = "<h3>Đang tìm kiếm...</h3>";
+
+  try {
+    const res = await fetch(
+      `https://api.jikan.moe/v4/anime?q=${encodeURIComponent(keyword)}&limit=12`
+    );
+
+    const data = await res.json();
+    container.innerHTML = "";
+
+    if (!data.data || data.data.length === 0) {
+      container.innerHTML = "<h3>Không tìm thấy phim.</h3>";
+      return;
+    }
+
+    data.data.forEach((anime) => {
+      container.innerHTML += `
+        <div class="anime-card">
+          <img style="height: 300px" src="${anime.images.jpg.image_url}">
+          <h3>${anime.title}</h3>
+          <p>${
+            anime.synopsis
+              ? anime.synopsis.slice(0, 100) + "..."
+              : "Chưa có mô tả"
+          }</p>
+        </div>
+      `;
+    });
+  } catch (error) {
+    console.error(error);
+    container.innerHTML = "<h3>Lỗi khi tìm kiếm phim!</h3>";
+  }
+}

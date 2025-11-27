@@ -185,12 +185,12 @@
 
     <nav class="navbar">
       <a href="http://127.0.0.1:5500/index.html">| Trang chủ |</a>
-      <a href="http://127.0.0.1:5500/api.html">| Đề xuất |</a>
+      <a href="http://127.0.0.1:5500/api.html">| Anime |</a>
       <a href="http://127.0.0.1:5500/fav.html">| Yêu thích |</a>
 
       <nav style="justify-items: center" class="searchBox">
         <input type="text" id="searchInput" placeholder="Nhập tên phim" />
-        <button onclick="timKiemPhim()">Tìm Kiếm</button>
+        <button onclick="chuyenTrang()">Tìm Kiếm</button>
       </nav>
 
       <a
@@ -286,7 +286,7 @@
 
         <!-- Chữ bên phải -->
         <div class="home-text">
-          <p><strong>🗂️ Thể loại phổ biến nhất:</strong></p>
+          <p><strong>🗂️ Thể loại phổ biến:</strong></p>
           <ul style="font-size: 20px">
             <li>Romcom 💖</li>
             <li>Adventure 🗺️</li>
@@ -295,7 +295,16 @@
           </ul>
         </div>
         <div class="home-text">
-          <p><strong>🗂️ Thể loại khác:</strong></p>
+          <p><strong>🗂️ Thể loại đặc biệt:</strong></p>
+          <ul style="font-size: 20px">
+            <li>Ecchi 😏</li>
+            <li>Psychological 🧠</li>
+            <li>Mystery 🕵️‍♂️</li>
+            <li>Horror 😱</li>
+          </ul>
+        </div>
+        <div class="home-text">
+          <p><strong>🗂️ Thể loại kém phổ biến:</strong></p>
           <ul style="font-size: 20px">
             <li>Sports 🏀</li>
             <li>Supernatural 👻</li>
@@ -305,17 +314,7 @@
         </div>
       </div>
 
-      <!-- Ô 3: Anime phổ biến -->
-      <div class="home custom-div" style="align-items: center">
-        <img src="../image/feedback-icon.png" alt="ảnh lỗi" />
-        <p>
-          <strong>💬 Khách hàng nói gì?</strong><br />
-          ...<br />
-          ???
-        </p>
-      </div>
-
-      <!-- Ô 4: Blog/tin tức (Carousel) -->
+      <!-- Ô 3: Blog/tin tức (Carousel) -->
       <div class="home custom-div">
         <div
           id="carouselBlog"
